@@ -39,6 +39,7 @@ public class FXMLController {
     @FXML
     void doRun(ActionEvent event) {
     	txtResult.clear();
+    	
     }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
@@ -50,9 +51,14 @@ public class FXMLController {
         
         // Utilizzare questo font per incolonnare correttamente i dati;
         txtResult.setStyle("-fx-font-family: monospace");
+        
     }
     
     public void setModel(Model model) {
     	this.model = model;
+    	for(Nerc n: model.getNercList()) {
+    		cmbNerc.getItems().add(n);
+    	}
+    	
     }
 }
